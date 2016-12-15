@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+      <head>
+            <meta charset="utf-8">
+            <title>Assorted Blogs</title>
+            <link rel="stylesheet" type="text/css" href="styles.css">
+      </head>
+      <body>
+            <div id="BodyDiv">
+              <h1>Our Blogs</h1>
+              <p><form action="/new" method="get"><input type="submit" value="New User"/></form></p>
+              <table>
+                <tr>
+                  <th id="TitleCol">Title</th>
+                  <th id="AuthorCol">Author</th>
+                  <th id="ContentCol">Content</th>
+                  <th id="EditCol">EDIT</th>
+                  <th id="DeleteCol">DELETE</th>
+                </tr>
+                <% data.forEach(function(blog){ %>
+                <tr>
+                  <td id="TitleCol"><%= blog.title %></td>
+                  <td id="AuthorCol"><%= blog.poster %></td>
+                  <td id="ContentCol"><%= blog.content %></td>
+                  <td><form action="/blogs/<%=blog.id%>/edit" method="get"><input type="submit" value="Edit"/></form></td>
+                  <td><form action="/blogs/<%=blog.id%>/delete" method="get"><input type="submit" value="Delete"/></form></td>
+                <tr>
+                <% }); %>
+              </table>
+            </div>
+      </body>
+</html>

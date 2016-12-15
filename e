@@ -1,0 +1,24 @@
+Available help:
+  ABORT                            ALTER SEQUENCE                   CREATE CAST                      CREATE TABLE AS                  DROP EXTENSION                   DROP TRIGGER                     REVOKE
+  ALTER AGGREGATE                  ALTER SERVER                     CREATE COLLATION                 CREATE TABLESPACE                DROP FOREIGN DATA WRAPPER        DROP TYPE                        ROLLBACK
+  ALTER COLLATION                  ALTER TABLE                      CREATE CONVERSION                CREATE TEXT SEARCH CONFIGURATION DROP FOREIGN TABLE               DROP USER                        ROLLBACK PREPARED
+  ALTER CONVERSION                 ALTER TABLESPACE                 CREATE DATABASE                  CREATE TEXT SEARCH DICTIONARY    DROP FUNCTION                    DROP USER MAPPING                ROLLBACK TO SAVEPOINT
+  ALTER DATABASE                   ALTER TEXT SEARCH CONFIGURATION  CREATE DOMAIN                    CREATE TEXT SEARCH PARSER        DROP GROUP                       DROP VIEW                        SAVEPOINT
+  ALTER DEFAULT PRIVILEGES         ALTER TEXT SEARCH DICTIONARY     CREATE EVENT TRIGGER             CREATE TEXT SEARCH TEMPLATE      DROP INDEX                       END                              SECURITY LABEL
+  ALTER DOMAIN                     ALTER TEXT SEARCH PARSER         CREATE EXTENSION                 CREATE TRIGGER                   DROP LANGUAGE                    EXECUTE                          SELECT
+  ALTER EVENT TRIGGER              ALTER TEXT SEARCH TEMPLATE       CREATE FOREIGN DATA WRAPPER      CREATE TYPE                      DROP MATERIALIZED VIEW           EXPLAIN                          SELECT INTO
+  ALTER EXTENSION                  ALTER TRIGGER                    CREATE FOREIGN TABLE             CREATE USER                      DROP OPERATOR                    FETCH                            SET
+  ALTER FOREIGN DATA WRAPPER       ALTER TYPE                       CREATE FUNCTION                  CREATE USER MAPPING              DROP OPERATOR CLASS              GRANT                            SET CONSTRAINTS
+  ALTER FOREIGN TABLE              ALTER USER                       CREATE GROUP                     CREATE VIEW                      DROP OPERATOR FAMILY             INSERT                           SET ROLE
+  ALTER FUNCTION                   ALTER USER MAPPING               CREATE INDEX                     DEALLOCATE                       DROP OWNED                       LISTEN                           SET SESSION AUTHORIZATION
+  ALTER GROUP                      ALTER VIEW                       CREATE LANGUAGE                  DECLARE                          DROP ROLE                        LOAD                             SET TRANSACTION
+  ALTER INDEX                      ANALYZE                          CREATE MATERIALIZED VIEW         DELETE                           DROP RULE                        LOCK                             SHOW
+  ALTER LANGUAGE                   BEGIN                            CREATE OPERATOR                  DISCARD                          DROP SCHEMA                      MOVE                             START TRANSACTION
+  ALTER LARGE OBJECT               CHECKPOINT                       CREATE OPERATOR CLASS            DO                               DROP SEQUENCE                    NOTIFY                           TABLE
+  ALTER MATERIALIZED VIEW          CLOSE                            CREATE OPERATOR FAMILY           DROP AGGREGATE                   DROP SERVER                      PREPARE                          TRUNCATE
+  ALTER OPERATOR                   CLUSTER                          CREATE ROLE                      DROP CAST                        DROP TABLE                       PREPARE TRANSACTION              UNLISTEN
+  ALTER OPERATOR CLASS             COMMENT                          CREATE RULE                      DROP COLLATION                   DROP TABLESPACE                  REASSIGN OWNED                   UPDATE
+  ALTER OPERATOR FAMILY            COMMIT                           CREATE SCHEMA                    DROP CONVERSION                  DROP TEXT SEARCH CONFIGURATION   REFRESH MATERIALIZED VIEW        VACUUM
+  ALTER ROLE                       COMMIT PREPARED                  CREATE SEQUENCE                  DROP DATABASE                    DROP TEXT SEARCH DICTIONARY      REINDEX                          VALUES
+  ALTER RULE                       COPY                             CREATE SERVER                    DROP DOMAIN                      DROP TEXT SEARCH PARSER          RELEASE SAVEPOINT                WITH
+  ALTER SCHEMA                     CREATE AGGREGATE                 CREATE TABLE                     DROP EVENT TRIGGER               DROP TEXT SEARCH TEMPLATE        RESET                            
