@@ -13,12 +13,28 @@ app.set('views', __dirname+'/views');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-var currentScore = 0;
-var numEntries = 3;
-var lowScore = 1;
+var currentScore;
+var numEntries;
+var lowScore;
 const MAXHIGHSCORES = 10;
 
 app.get('/', function(req,res,next){
+    currentScore = 0;
+    db.one('SELECT COUNT (*) FROM highscores')
+        .then(function (result){
+            numEntries = parseInt(result.count);
+        })
+        .catch(function(err){
+            console.log(err);
+        })
+    db.one('SELECT MIN(score) FROM highscores' )
+        .then(function(result){
+            lowScore = parseInt(result.min);
+        })
+        .catch(function(err){
+            console.log(err);
+        })
+    
     res.render('index');
 });
 
@@ -30,12 +46,11 @@ app.get('/submit', function(req,res,next){
     if(req.body.QuestionThree == "Blue" || req.body.QuestionThree == "blue" || req.body.QuestionThree == "Yellow" ||req.body.QuestionThree == "yellow") currentScore++;
     if(req.body.QuestionFour == "African or European?" || req.body.QuestionFour == "24 miles per hour") currentScore++;
     if(req.body.QuestionFive == "Monty Python and the Holy Grail") currentScore++;
-    console.log(req.body.QuestionOne);
-    console.log(numEntries);
-    console.log(MAXHIGHSCORES);
+    //console.log(req.body.QuestionOne);
+    //console.log(numEntries);
+    //console.log(MAXHIGHSCORES);
     
     if(numEntries < MAXHIGHSCORES){
-        console.log("here");
         numEntries++;
         res.render('enterScore', {score:currentScore});
     }

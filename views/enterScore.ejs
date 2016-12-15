@@ -2,13 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Quiz</title>
+    <title>Enter Score</title>
       <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
   <body>
     <div id="IndexBodyDiv">
       <h1>Congratulations!</h1>
-      <p>You've made a high score! Enter your name below so we can record it!</p>
+      <p>You've achieved a high score of <%=score%>! Enter your name here so we can record it!</p>
       <input type='text' name='player'></input>
       <p><form action="/logScore" method="post"><input type="submit" value="Submit"/></form></p>
     </div>

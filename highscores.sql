@@ -10,10 +10,10 @@ CREATE TABLE highscores (
 );
 
 INSERT INTO highscores (player, score)
-  VALUES ('Tyler', 1);
+  VALUES ('Tyler', 4);
 
 INSERT INTO highscores (player, score)
-  VALUES ('Bill', 1);
+  VALUES ('Bill', 4);
 
 INSERT INTO highscores (player, score)
-  VALUES ('Phillip', 2);
+  VALUES ('Phillip', 0);
