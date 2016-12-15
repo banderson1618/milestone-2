@@ -13,63 +13,65 @@ app.set('views', __dirname+'/views');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+var currentScore = 0;
+var numEntries = 3;
+var lowScore = 1;
+const MAXHIGHSCORES = 10;
+
 app.get('/', function(req,res,next){
-  db.any('SELECT * FROM blogs')
-      .then(function(data){
-          return res.render('index', {data: data})
-      })
-      .catch(function(err){
-          return next(err);
-      });
-});
-/*
-// edit users
-app.get('/blogs/:id/edit', function(req,res,next){
-    var id = parseInt(req.params.id);
-    db.one('select * from highscores where id = $1', id)
-        .then(function (blog) {
-            res.render('edit', {blog: blog})
-        })
-        .catch(function (err) {
-            return next(err);
-        });
+    res.render('index');
 });
 
-app.post('/blogs/:id/edit', function(req,res,next){
-    db.none('update blogs set title=$1, poster=$2, content=$3 where id=$4', [req.body.title, req.body.poster, req.body.content, parseInt(req.params.id)])
+
+app.get('/submit', function(req,res,next){
+    currentScore = 0;
+    if(req.body.QuestionOne != '') currentScore++;
+    if(req.body.QuestionTwo == "To seek the Holy Grail!") currentScore++;
+    if(req.body.QuestionThree == "Blue" || req.body.QuestionThree == "blue" || req.body.QuestionThree == "Yellow" ||req.body.QuestionThree == "yellow") currentScore++;
+    if(req.body.QuestionFour == "African or European?" || req.body.QuestionFour == "24 miles per hour") currentScore++;
+    if(req.body.QuestionFive == "Monty Python and the Holy Grail") currentScore++;
+    console.log(req.body.QuestionOne);
+    console.log(numEntries);
+    console.log(MAXHIGHSCORES);
+    
+    if(numEntries < MAXHIGHSCORES){
+        console.log("here");
+        numEntries++;
+        res.render('enterScore', {score:currentScore});
+    }
+    else if(currentScore > lowScore){
+        db.result('delete from blogs where id = $1', MAXHIGHSCORES) // deletes the last entry in the database
+            .then(function (result) {
+                 res.render('enterScore', {score:currentScore});
+            })
+            .catch(function (err) {
+              return next(err);
+            });
+    }
+    else{
+        res.redirect('/hiscores');
+    }
+});
+
+app.post('/logScore', function(req, res, next){
+    db.none('insert into highscores(player, score)' + 'values($1, $2)', [req.body.player, currentScore])
         .then(function () {
-            res.redirect('/');
+            res.redirect('/hiscores');
         })
         .catch(function (err) {
             return next(err);
         });
 });
 
-app.get('/blogs/:id/delete', function(req, res, next){
-    var id = parseInt(req.params.id);
-    db.result('delete from blogs where id = $1', id)
-        .then(function (result) {
-            res.redirect('/');
+app.get('/hiscores', function(req, res, next){
+    db.any('SELECT * FROM highscores ORDER BY score DESC')
+        .then(function(data){
+            return res.render('hiscores', {data: data})
         })
-        .catch(function (err) {
+        .catch(function(err){
             return next(err);
         });
 });
-
-app.get('/new', function(req, res, next){
-  return res.render('new');
-});
-
-app.post('/new', function(req, res, next){
-  db.none('insert into blogs(title, poster, content)' + 'values($1, $2, $3)', [req.body.title, req.body.poster, req.body.content])
-    .then(function () {
-      res.redirect('/');
-    })
-    .catch(function (err) {
-      return next(err);
-    });
-});
-*/
 
 app.listen(process.env.PORT, function(){
     console.log('Application running on localhost on port ' + process.env.PORT);

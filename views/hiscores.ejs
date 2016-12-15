@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+      <head>
+            <meta charset="utf-8">
+            <title>Assorted Blogs</title>
+            <link rel="stylesheet" type="text/css" href="styles.css">
+      </head>
+      <body>
+            <div id="ScoresBodyDiv">
+              <h1>High Scores</h1>
+              <table>
+                <tr>
+                  <th id="PlayerCol">Player</th>
+                  <th id="ScoreCol">Score</th>
+                </tr>
+                <% data.forEach(function(score){ %>
+                <tr>
+                  <td id="PlayerCol"><%= score.player %></td>
+                  <td id="ScoreCol"><%= score.score %></td>
+                <tr>
+                <% }); %>
+              </table>
+              <p><form action="/" method="get"><input type="submit" value="Return To Quiz"/></form></p>
+            </div>
+      </body>
+</html>

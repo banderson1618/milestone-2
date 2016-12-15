@@ -5,15 +5,15 @@ CREATE DATABASE highscores;
 
 CREATE TABLE highscores (
   ID SERIAL PRIMARY KEY,
-  user VARCHAR,
+  player VARCHAR,
   score INTEGER
 );
 
-INSERT INTO highscores (user, score)
+INSERT INTO highscores (player, score)
   VALUES ('Tyler', 1);
 
-INSERT INTO highscores (user, score)
+INSERT INTO highscores (player, score)
   VALUES ('Bill', 1);
 
-INSERT INTO highscores (user, score)
+INSERT INTO highscores (player, score)
   VALUES ('Phillip', 2);

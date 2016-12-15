@@ -1,3 +1,37 @@
 body {
     background:#475f77;
 }
+
+#IndexBodyDiv{
+    width:370px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    margin:auto;
+    position: absolute;
+    top:50px;
+    left: 0;
+    right: 0;
+    text-align:left;
+    padding: 0px 30px 0px 30px;
+}
+
+#ScoresBodyDiv{
+    width:200px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    margin:auto;
+    position: absolute;
+    top:50px;
+    left: 0;
+    right: 0;
+    text-align:left;
+    padding: 0px 30px 0px 30px;
+}
+
+#PlayerCol{
+  width: 75px;
+}
+
+#ScoreCol{
+  width: 75px;
+}
