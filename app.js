@@ -54,7 +54,7 @@ app.get('/submit', function(req,res,next){
         res.render('enterScore', {score:currentScore});
     }
     else if(currentScore > lowScore){ // if the high score database is full, and the player's score is higher
-        db.result('delete from blogs where id = $1', MAXHIGHSCORES) // deletes the last entry in the database
+        db.result('delete from highscores where id = $1', MAXHIGHSCORES) // deletes the last entry in the database
             .then(function (result) {
                  res.render('enterScore', {score:currentScore}); // renders the "enter score" page
             })
